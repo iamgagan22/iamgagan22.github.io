@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --bg: #0a0a0b;
       --bg2: #111114;
@@ -22,9 +21,7 @@
       --accent2: #AFA9EC;
       --accent3: #F0997B;
     }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -33,7 +30,6 @@
       line-height: 1.7;
       overflow-x: hidden;
     }
-
     /* ── Noise overlay ── */
     body::before {
       content: '';
@@ -44,7 +40,6 @@
       z-index: 0;
       opacity: 0.4;
     }
-
     /* ── Nav ── */
     nav {
       position: fixed;
@@ -58,7 +53,6 @@
       background: rgba(10,10,11,0.85);
       backdrop-filter: blur(12px);
     }
-
     .nav-logo {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
@@ -68,13 +62,11 @@
       text-decoration: none;
     }
     .nav-logo span { color: var(--accent); }
-
     .nav-links {
       display: flex;
       gap: 2rem;
       list-style: none;
     }
-
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
@@ -85,7 +77,6 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--text); }
-
     .nav-cta {
       font-family: 'DM Mono', monospace;
       font-size: 0.8rem;
@@ -98,7 +89,6 @@
       transition: background 0.2s, color 0.2s;
     }
     .nav-cta:hover { background: var(--accent); color: #0a0a0b; }
-
     /* ── Hero ── */
     #hero {
       min-height: 100vh;
@@ -109,7 +99,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .hero-grid-bg {
       position: absolute;
       inset: 0;
@@ -119,7 +108,6 @@
       background-size: 64px 64px;
       mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
     }
-
     .hero-orb {
       position: absolute;
       width: 700px;
@@ -130,7 +118,6 @@
       right: -100px;
       pointer-events: none;
     }
-
     .hero-tag {
       display: inline-flex;
       align-items: center;
@@ -154,7 +141,6 @@
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.5; transform: scale(0.8); }
     }
-
     h1 {
       font-family: 'Syne', sans-serif;
       font-size: clamp(3rem, 7vw, 6rem);
@@ -169,7 +155,6 @@
       -webkit-text-stroke: 1px rgba(255,255,255,0.3);
     }
     h1 .accent-word { color: var(--accent); }
-
     .hero-sub {
       max-width: 540px;
       color: var(--muted);
@@ -177,13 +162,11 @@
       margin-bottom: 2.5rem;
       line-height: 1.8;
     }
-
     .hero-actions {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
     }
-
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -200,7 +183,6 @@
       transition: opacity 0.2s, transform 0.2s;
     }
     .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
-
     .btn-ghost {
       display: inline-flex;
       align-items: center;
@@ -216,7 +198,6 @@
       transition: border-color 0.2s, background 0.2s;
     }
     .btn-ghost:hover { border-color: var(--text); background: rgba(255,255,255,0.04); }
-
     .hero-stats {
       display: flex;
       gap: 3rem;
@@ -239,13 +220,11 @@
       text-transform: uppercase;
       margin-top: 0.25rem;
     }
-
     /* ── Sections ── */
     section {
       padding: 6rem 4rem;
       position: relative;
     }
-
     .section-label {
       font-family: 'DM Mono', monospace;
       font-size: 0.75rem;
@@ -254,7 +233,6 @@
       text-transform: uppercase;
       margin-bottom: 1rem;
     }
-
     h2 {
       font-family: 'Syne', sans-serif;
       font-size: clamp(2rem, 4vw, 3rem);
@@ -263,28 +241,24 @@
       line-height: 1.1;
       margin-bottom: 3rem;
     }
-
     /* ── About ── */
     #about {
       background: var(--bg2);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
-
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
       align-items: center;
     }
-
     .about-text p {
       color: var(--muted);
       font-size: 1.05rem;
       margin-bottom: 1.25rem;
     }
     .about-text p strong { color: var(--text); font-weight: 500; }
-
     .about-meta {
       display: flex;
       flex-direction: column;
@@ -309,10 +283,8 @@
     }
     .meta-label { font-size: 0.75rem; color: var(--muted); font-family: 'DM Mono', monospace; }
     .meta-val { font-size: 0.95rem; color: var(--text); font-weight: 500; }
-
     /* ── Skills ── */
     #skills { background: var(--bg); }
-
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -322,14 +294,12 @@
       border-radius: 4px;
       overflow: hidden;
     }
-
     .skill-card {
       background: var(--bg);
       padding: 2rem;
       transition: background 0.2s;
     }
     .skill-card:hover { background: var(--bg3); }
-
     .skill-icon {
       font-family: 'DM Mono', monospace;
       font-size: 0.7rem;
@@ -345,14 +315,12 @@
       margin-bottom: 0.5rem;
     }
     .skill-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
-
     /* ── Experience ── */
     #experience {
       background: var(--bg2);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
-
     .exp-timeline { position: relative; }
     .exp-timeline::before {
       content: '';
@@ -362,7 +330,6 @@
       width: 1px;
       background: var(--border);
     }
-
     .exp-item {
       padding: 0 0 3.5rem 3rem;
       position: relative;
@@ -377,7 +344,6 @@
       background: var(--accent);
       box-shadow: 0 0 0 3px rgba(93,202,165,0.2);
     }
-
     .exp-period {
       font-family: 'DM Mono', monospace;
       font-size: 0.75rem;
@@ -416,16 +382,13 @@
       color: var(--accent);
       font-size: 0.8rem;
     }
-
     /* ── Projects ── */
     #projects { background: var(--bg); }
-
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
     }
-
     .project-card {
       background: var(--bg2);
       border: 1px solid var(--border);
@@ -445,7 +408,6 @@
     }
     .project-card:hover { border-color: rgba(93,202,165,0.3); transform: translateY(-3px); }
     .project-card:hover::before { opacity: 1; }
-
     .project-tag {
       display: inline-block;
       font-family: 'DM Mono', monospace;
@@ -462,7 +424,6 @@
     .tag-health { background: rgba(93,202,165,0.08); color: #5DCAA5; }
     .tag-auth { background: rgba(175,169,236,0.08); color: var(--accent2); }
     .tag-hospitality { background: rgba(240,153,123,0.08); color: var(--accent3); }
-
     .project-card h3 {
       font-family: 'Syne', sans-serif;
       font-size: 1.15rem;
@@ -474,7 +435,6 @@
       color: var(--muted);
       line-height: 1.65;
     }
-
     /* ── Tech Tags ── */
     .tech-cloud {
       display: flex;
@@ -493,7 +453,6 @@
       transition: border-color 0.2s, color 0.2s;
     }
     .tech-tag:hover { border-color: var(--accent); color: var(--accent); }
-
     /* ── Contact ── */
     #contact {
       background: var(--bg2);
@@ -507,7 +466,6 @@
       margin: 0 auto 3rem;
       font-size: 1rem;
     }
-
     .contact-links {
       display: flex;
       justify-content: center;
@@ -515,7 +473,6 @@
       flex-wrap: wrap;
       margin-bottom: 4rem;
     }
-
     .contact-chip {
       display: inline-flex;
       align-items: center;
@@ -531,7 +488,6 @@
       transition: border-color 0.2s, background 0.2s;
     }
     .contact-chip:hover { border-color: var(--accent); color: var(--accent); background: rgba(93,202,165,0.05); }
-
     /* ── Footer ── */
     footer {
       padding: 2rem 4rem;
@@ -543,7 +499,6 @@
       font-size: 0.75rem;
       color: var(--muted);
     }
-
     /* ── Animations ── */
     .fade-up {
       opacity: 0;
@@ -551,7 +506,6 @@
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
-
     /* ── Responsive ── */
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
@@ -562,7 +516,6 @@
       .hero-stats { gap: 2rem; flex-wrap: wrap; }
       footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
     }
-
     @media (max-width: 600px) {
       .stat-num { font-size: 2rem; }
       .hero-actions { flex-direction: column; }
@@ -589,24 +542,19 @@
   <section id="hero">
     <div class="hero-grid-bg"></div>
     <div class="hero-orb"></div>
-
     <div class="hero-tag">Available for new opportunities</div>
-
     <h1>
       Gagandeep<br/>
       <em>Singh</em><br/>
       <span class="accent-word">Lead</span> Dev.
     </h1>
-
     <p class="hero-sub">
       Engineering Lead with <strong>11+ years</strong> building scalable mobile platforms, AI-driven solutions, and leading cross-functional teams. Specialised in Android, system architecture &amp; healthcare tech.
     </p>
-
     <div class="hero-actions">
       <a href="#projects" class="btn-primary">View My Work →</a>
       <a href="mailto:iamgagan22@gmail.com" class="btn-ghost">Get In Touch</a>
     </div>
-
     <div class="hero-stats">
       <div>
         <div class="stat-num">11<span>+</span></div>
@@ -680,7 +628,6 @@
     <div class="fade-up">
       <div class="section-label">// Skills</div>
       <h2>What I Build With</h2>
-
       <div class="skills-grid">
         <div class="skill-card">
           <div class="skill-icon">01 / Mobile</div>
@@ -713,7 +660,6 @@
           <p>Agile/Scrum delivery, managing 10–15 engineer teams, sprint planning, code reviews, and technical mentorship.</p>
         </div>
       </div>
-
       <div class="tech-cloud">
         <span class="tech-tag">Kotlin</span>
         <span class="tech-tag">Java</span>
@@ -744,7 +690,6 @@
     <div class="fade-up">
       <div class="section-label">// Experience</div>
       <h2>Career Timeline</h2>
-
       <div class="exp-timeline">
         <div class="exp-item">
           <div class="exp-period">Sep 2017 — Present</div>
@@ -758,7 +703,6 @@
             <li>Ensure code quality through reviews, performance optimisation, and scalable architecture decisions.</li>
           </ul>
         </div>
-
         <div class="exp-item">
           <div class="exp-period">Jun 2014 — Sep 2017</div>
           <div class="exp-role">Android Application Developer</div>
@@ -779,7 +723,6 @@
     <div class="fade-up">
       <div class="section-label">// Projects</div>
       <h2>Selected Work</h2>
-
       <div class="projects-grid">
         <div class="project-card">
           <span class="project-tag tag-auth">Auth / Security</span>
@@ -821,7 +764,6 @@
       <div class="section-label">// Contact</div>
       <h2>Let's Build Together</h2>
       <p class="sub">Open to exciting opportunities, consulting work, and interesting architectural challenges. Let's connect.</p>
-
       <div class="contact-links">
         <a href="mailto:iamgagan22@gmail.com" class="contact-chip">
           ✉ iamgagan22@gmail.com
