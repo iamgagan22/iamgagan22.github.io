@@ -6,7 +6,7 @@
   <title>Gagandeep Singh — Lead Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -18,9 +18,12 @@
       --border-hover: rgba(255,255,255,0.16);
       --text: #f0efe8;
       --muted: #888885;
-      --accent: #5DCAA5;
-      --accent2: #AFA9EC;
-      --accent3: #F0997B;
+      --accent: #5dcaa5;
+      --accent-rgb: 93, 202, 165;
+      --accent2: #afa9ec;
+      --accent2-rgb: 175, 169, 236;
+      --accent3: #f0997b;
+      --accent3-rgb: 240, 153, 123;
     }
 
     html { scroll-behavior: smooth; }
@@ -48,15 +51,22 @@
     /* ── Nav ── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1100px;
       z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.25rem 4rem;
-      border-bottom: 1px solid var(--border);
-      background: rgba(10,10,11,0.85);
-      backdrop-filter: blur(12px);
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      background: rgba(20, 20, 22, 0.6);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
     }
 
     .nav-logo {
@@ -92,12 +102,12 @@
       padding: 0.5rem 1.25rem;
       border: 1px solid var(--accent);
       color: var(--accent);
-      border-radius: 2px;
+      border-radius: 100px;
       text-decoration: none;
       letter-spacing: 0.04em;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
     }
-    .nav-cta:hover { background: var(--accent); color: #0a0a0b; }
+    .nav-cta:hover { background: var(--accent); color: #0a0a0b; transform: translateY(-2px); }
 
     /* ── Hero ── */
     #hero {
@@ -114,8 +124,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(93,202,165,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(93,202,165,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(var(--accent-rgb), 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--accent-rgb), 0.04) 1px, transparent 1px);
       background-size: 64px 64px;
       mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
     }
@@ -125,10 +135,15 @@
       width: 700px;
       height: 700px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(93,202,165,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(var(--accent-rgb), 0.15) 0%, transparent 60%);
       top: -200px;
       right: -100px;
       pointer-events: none;
+      animation: floatOrb 15s ease-in-out infinite;
+    }
+    @keyframes floatOrb {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-30px, 20px) scale(1.05); }
     }
 
     .hero-tag {
@@ -157,18 +172,26 @@
 
     h1 {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(3rem, 7vw, 6rem);
+      font-size: clamp(3.5rem, 8vw, 7rem);
       font-weight: 800;
-      line-height: 1.0;
-      letter-spacing: -0.03em;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
       margin-bottom: 1.5rem;
+      background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     h1 em {
       font-style: normal;
       color: transparent;
-      -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+      -webkit-text-stroke: 1px rgba(255,255,255,0.4);
+      -webkit-text-fill-color: transparent;
     }
-    h1 .accent-word { color: var(--accent); }
+    h1 .accent-word {
+      background: linear-gradient(135deg, var(--accent) 0%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
     .hero-sub {
       max-width: 540px;
@@ -302,7 +325,7 @@
     .meta-icon {
       width: 36px; height: 36px;
       border-radius: 50%;
-      background: rgba(93,202,165,0.1);
+      background: rgba(var(--accent-rgb), 0.1);
       display: flex; align-items: center; justify-content: center;
       font-size: 0.9rem;
       flex-shrink: 0;
@@ -324,11 +347,20 @@
     }
 
     .skill-card {
-      background: var(--bg);
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
       padding: 2rem;
-      transition: background 0.2s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
     }
-    .skill-card:hover { background: var(--bg3); }
+    .skill-card:hover {
+      background: rgba(var(--accent-rgb), 0.05);
+      border-color: rgba(var(--accent-rgb), 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px -10px rgba(var(--accent-rgb), 0.1);
+    }
 
     .skill-icon {
       font-family: 'DM Mono', monospace;
@@ -375,7 +407,12 @@
       width: 9px; height: 9px;
       border-radius: 50%;
       background: var(--accent);
-      box-shadow: 0 0 0 3px rgba(93,202,165,0.2);
+      box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.2);
+      transition: all 0.3s ease;
+    }
+    .exp-item:hover::before {
+      box-shadow: 0 0 0 5px rgba(var(--accent-rgb), 0.4), 0 0 15px rgba(var(--accent-rgb), 0.8);
+      transform: scale(1.2);
     }
 
     .exp-period {
@@ -429,9 +466,9 @@
     .project-card {
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 2rem;
-      transition: border-color 0.2s, transform 0.2s;
+      border-radius: 16px;
+      padding: 2.5rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
     }
@@ -439,11 +476,15 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(93,202,165,0.04) 0%, transparent 60%);
+      background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.1) 0%, transparent 60%);
       opacity: 0;
-      transition: opacity 0.3s;
+      transition: opacity 0.3s ease;
     }
-    .project-card:hover { border-color: rgba(93,202,165,0.3); transform: translateY(-3px); }
+    .project-card:hover {
+      border-color: rgba(var(--accent-rgb), 0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px -15px rgba(var(--accent-rgb), 0.15);
+    }
     .project-card:hover::before { opacity: 1; }
 
     .project-tag {
@@ -456,12 +497,12 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
-    .tag-mobile { background: rgba(175,169,236,0.12); color: var(--accent2); }
-    .tag-ai { background: rgba(93,202,165,0.12); color: var(--accent); }
-    .tag-fintech { background: rgba(240,153,123,0.12); color: var(--accent3); }
-    .tag-health { background: rgba(93,202,165,0.08); color: #5DCAA5; }
-    .tag-auth { background: rgba(175,169,236,0.08); color: var(--accent2); }
-    .tag-hospitality { background: rgba(240,153,123,0.08); color: var(--accent3); }
+    .tag-mobile { background: rgba(var(--accent2-rgb), 0.12); color: var(--accent2); }
+    .tag-ai { background: rgba(var(--accent-rgb), 0.12); color: var(--accent); }
+    .tag-fintech { background: rgba(var(--accent3-rgb), 0.12); color: var(--accent3); }
+    .tag-health { background: rgba(var(--accent-rgb), 0.08); color: var(--accent); }
+    .tag-auth { background: rgba(var(--accent2-rgb), 0.08); color: var(--accent2); }
+    .tag-hospitality { background: rgba(var(--accent3-rgb), 0.08); color: var(--accent3); }
 
     .project-card h3 {
       font-family: 'Syne', sans-serif;
@@ -530,7 +571,7 @@
       letter-spacing: 0.04em;
       transition: border-color 0.2s, background 0.2s;
     }
-    .contact-chip:hover { border-color: var(--accent); color: var(--accent); background: rgba(93,202,165,0.05); }
+    .contact-chip:hover { border-color: var(--accent); color: var(--accent); background: rgba(var(--accent-rgb), 0.05); }
 
     /* ── Footer ── */
     footer {
@@ -554,7 +595,7 @@
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
+      nav { top: 1rem; width: 95%; padding: 0.75rem 1.25rem; }
       .nav-links { display: none; }
       section { padding: 4rem 1.5rem; }
       #hero { padding: 7rem 1.5rem 3rem; }
